@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+            <div>
+                <h4 class="mb-3">Transaksi</h4>
+                <p class="mb-0">Berikut adalah tabel kumpulan transaksi yang terjadi di merchant.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="table-responsive mb-3" style="border-radius: 1rem;">
+            <table class="data-table table mb-0 tbl-server-info">
+                <thead class="bg-white">
+                    <tr class="ligth ligth-data">
+                        <th>#</th>
+                        <th>Merchant ID</th>
+                        <th>Waktu Transaksi</th>
+                        <th>Status</th>
+                        <th>ID Transaksi</th>
+                        <th>ID Order</th>
+                        <th>Tipe Pembayaran</th>
+                        <th>Total</th>
+                        <th>Tipe Produk</th>
+                        <th>Kode Penyetujuan</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="ligth-body">
+                    <tr *ngFor="let item of transaction_history; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.merchant_user_id}}</td>
+                        <td>{{item.transaction_time}}</td>
+                        <td>{{item.transaction_status}}</td>
+                        <td>{{item.transaction_id}}</td>
+                        <td>{{item.order_id}}</td>
+                        <td>{{item.payment_type}}</td>
+                        <td>{{item.gross_amount}}</td>
+                        <td>{{item.product_type}}</td>
+                        <td>{{item.approval_code}}</td>
+                        <td>
+                            <div class="d-flex align-items-center list-action">
+                                <button class="btn btn-sm btn-info mr-2" data-toggle="tooltip" data-placement="top" title=""
+                                    data-original-title="View"><i class="ti ti-eye"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

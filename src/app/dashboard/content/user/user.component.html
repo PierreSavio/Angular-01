@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+            <div>
+                <h4 class="mb-3">User List</h4>
+                <p class="mb-0">Berikut adalah tabel untuk menunjukkan data user yang terdaftar di sistem merchant.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="table-responsive mb-3" style="border-radius: 1rem;">
+            <table class="data-table table mb-0 tbl-server-info">
+                <thead class="bg-white">
+                    <tr class="ligth ligth-data">
+                        <th>#</th>
+                        <th>Merchant ID</th>
+                        <th>Nama</th>
+                        <th class="text-success">WhatsApp</th>
+                        <th class="text-warning">Email</th>
+                        <th class="text-danger">Instagram</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="ligth-body">
+                    <tr *ngFor="let user of users; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ user.merchant_user_id }}</td>
+                        <td>{{ user.nama }}</td>
+                        <td class="text-success"> {{ user.nomor_hp }}</td>
+                        <td class="text-warning">{{ user.email }}</td>
+                        <td><a href="https://instagram.com/{{ user.instagram }}" class="text-danger" target="_blank">{{ user.instagram }}</a></td>
+                        <td>
+                            <div class="d-flex align-items-center list-action">
+                                <a routerLink="/dashboard/view" routerLinkActive="active" class="btn btn-sm btn-info mr-2" data-toggle="tooltip" data-placement="top" title=""
+                                    data-original-title="View"><i class="ti ti-eye"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

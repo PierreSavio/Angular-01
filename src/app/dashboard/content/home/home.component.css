@@ -1,0 +1,64 @@
+#error-message {
+    visibility: hidden;
+    min-width: 300px;
+    background-color: #c60000;
+    color: #fff;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%); /* Untuk memastikan elemen berada di tengah secara horizontal */
+    top: 80px; /* Posisikan di atas */
+}
+
+#error-message.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 7s;
+    animation: fadein 0.5s, fadeout 0.5s 7s;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 80px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+    to {
+        top: 80px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        top: 80px;
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 80px;
+        opacity: 1;
+    }
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}

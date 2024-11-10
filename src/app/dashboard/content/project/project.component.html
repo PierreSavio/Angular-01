@@ -1,0 +1,87 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
+            <h5>Your Projects</h5>
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+
+                <div class="pl-3 border-left btn-new">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new-project-modal">
+                        New Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card" *ngIf="projects.length > 0">
+    <div class="card-body">
+        <div class="row">
+            
+            <div class="col-md-4" *ngFor="let project of projects">
+                <div class="card" style="background-image: url('http://api.devindex.com/service/{{ project.project_image }}'); background-size: cover; background-position: center; aspect-ratio: 1/1;">
+                    <div class="card-body">
+                        <h5 class="card-title text-white" style="position: absolute; bottom: 60px; left: 20px;">{{ project.project_name }}</h5>
+                        <p class="card-text text-white" style="position: absolute; bottom: 20px; right: 20px;"><small>{{ project.project_date }}</small></p>
+                        <a href="#" class="btn btn-primary" style="position: absolute; bottom: 20px; left: 20px;">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card" *ngIf="projects.length == 0">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex flex-wrap align-items-center justify-content-center mt-2" style="height: 460px;">
+                    <h5 class="text-center">No Project Found</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" role="dialog" aria-modal="true" id="new-project-modal">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header d-block text-center pb-3 border-bttom">
+                <h3 class="modal-title" id="exampleModalCenterTitle01">New Project</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formAddProject" (ngSubmit)="addProject()">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group mb-3">
+                            <label for="exampleInputText01" class="h5">Nama Project*</label>
+                            <input type="text" class="form-control" id="exampleInputText01" formControlName="nama_project">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <label for="exampleInputText2" class="h5">Skalabilitas Project *</label>
+                            <select name="type" class="selectpicker form-control" data-style="py-0" formControlName="skalabilitas_project">
+                                <option>Besar</option>
+                                <option>Menengah</option>
+                                <option>Kecil</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group mb-3">
+                            <label for="exampleInputText004" class="h5">Target Selesai</label>
+                            <input type="date" class="form-control" id="exampleInputText004" formControlName="target_selesai">
+                        </div>                        
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-2">
+                            <button type="submit" class="btn btn-primary mr-3" data-dismiss="modal">Tambahkan</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
